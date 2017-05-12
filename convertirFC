@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class convertirFC {
+
+	public static void main(String[] args) {
+	
+			char reponse = 'O';
+			Scanner sc = new Scanner(System.in);
+			
+			//System.out.println("Repère 2");
+			
+			while (reponse == 'O')
+			{
+				//System.out.println("Repère");
+							int typeConversion;
+							// On demande à la personne quelle conversion elle veut faire
+							
+							
+							do {
+							String question = new String("Voulez-vous convertir... \r des Celsius en Fahrenheit ? Tapez "
+									+ "\"1\" \r des Fahrenheit en Celsius ? Tapez \"2\"");
+							System.out.println(question);
+							typeConversion = sc.nextInt();
+							
+							if (typeConversion != 1 && typeConversion != 2)
+									{
+								System.out.println("Ce type de conversion n'est pas possible.");
+									}
+							
+							} while (typeConversion !=1 && typeConversion !=2);
+							
+		
+							// Si c'est de C en F (si typeConversion = 1)
+							if (typeConversion == 1)
+							{
+							// Alors on lui demande la valeur en Celcius qu'elle veut convertir
+							System.out.println("Tapez la valeur en Celcius :");
+							int valeurCelcius = sc.nextInt();
+							// Puis on lui donne le résultat en F
+							float resultatFahrenheit = (float) (1.8 * valeurCelcius + 32);
+							System.out.println("La valeur en Fahrenheit est de : " + resultatFahrenheit);
+							}
+							
+						// Si c'est de F en C (si typeConversion = 2)
+							else
+							{
+							// Alors on lui demande la valeur  en Fahrenheit qu'elle veut convertir
+							System.out.println("Tapez la valeur en Fahrenheit :");
+							int valeurFahrenheit = sc.nextInt();
+							// Puis on lui donne le résultat en C
+							System.out.println("La valeur en Celcius est de : " + (valeurFahrenheit-32)*5/9);
+							}
+							
+					reponse = ' ';
+					
+					while(reponse != 'O' && reponse != 'N')
+					{
+							System.out.println("Voulez-vous faire une autre conversion ?");
+						    sc.nextLine();
+						    reponse = sc.nextLine().charAt(0);
+					}
+						    						    
+			}
+			System.out.println("Au revoir !");
+}
+}
